@@ -4,13 +4,13 @@ public class Order {
 
         String companyName;
         double kilograms;
-        String LocalDateTime;
+        LocalDateTime time;
 
-        public Order(String companyName, double kilograms, String LocalDatetime) {
+        public Order(String companyName, double kilograms, LocalDateTime time) {
 
             this.companyName = companyName;
             this.kilograms = kilograms;
-            this.LocalDateTime = LocalDatetime;
+            this.time = time;
         }
 
         public String getCompanyName() {
@@ -21,8 +21,8 @@ public class Order {
             return kilograms;
         }
 
-        public String getTime() {
-            return LocalDateTime;
+        public LocalDateTime getTime() {
+            return time;
         }
 
     }
