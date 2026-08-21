@@ -18,7 +18,7 @@ public class OrderTest {
         Order order = parser.parse(line);
         System.out.println(order);
 
-        String lineWithHash = "2021-02-09T16#00#22";
+        String lineWithHash = "2021-02-09T16:00:22#Industrial#8800";
         ParserAdapter adapter = new ParserAdapter(parser);
         Order order2 = adapter.parse(lineWithHash);
         System.out.println(order2);
