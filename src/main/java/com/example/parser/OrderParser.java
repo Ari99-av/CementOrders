@@ -1,12 +1,13 @@
 package com.example.parser;
+import com.example.OrderParserInterface;
 import com.example.order.Order;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 
-public class OrderParser {
+public class OrderParser implements OrderParserInterface {
     public Order parse(String line) {
-        String[] parts = line.split(";");
+        String[] parts = line.split("\\|");
         //LocalDateTime time = LocalDateTime.parse(parts[0]);
         String companyName = parts[1];
         double kilograms = Double.parseDouble(parts[2]);
