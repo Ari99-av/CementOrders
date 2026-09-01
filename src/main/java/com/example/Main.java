@@ -1,7 +1,8 @@
 package com.example;
+import com.example.file.FileService;
 import com.example.order.Order;
-import com.example.parser.OrderParser1;
 import com.example.parser.ParserAdapter;
+import org.OrderParser1;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -31,6 +32,11 @@ public class Main {
 
         //System.out.println(fileparser.getClass());
         //System.out.println(fileparser2.getClass());
+
+        FileService fileService = new FileService();
+        List<Order> orderFromFile = fileService.read("orders.txt", fileparser);
+        boolean ordersFromFile = false;
+        System.out.println(ordersFromFile);
 
 
     }

@@ -1,7 +1,7 @@
 package com.example;
 
-import com.example.parser.OrderParser1;
 import com.example.parser.ParserAdapter;
+import org.OrderParser1;
 
 public class OrderParserFactory {
     public OrderParser getParser(String filePath){

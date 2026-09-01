@@ -15,8 +15,8 @@ public class FileService {
         try {
             List<String> lines = Files.readAllLines(path);
             List<Order> orders = new ArrayList<>();
-            for (String Line : lines){
-                String line = lines;
+            for (String currentLine : lines){
+                String line = currentLine;
                 Order order = parser.parse(line);
                 orders.add(order);
             }
