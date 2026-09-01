@@ -1,11 +1,10 @@
 package com.example.parser;
-import com.example.OrderParserInterface;
 import com.example.order.Order;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 
-public class OrderParser implements OrderParserInterface {
+public class OrderParser1 implements com.example.OrderParser {
     public Order parse(String line) {
         String[] parts = line.split("\\|");
         //LocalDateTime time = LocalDateTime.parse(parts[0]);

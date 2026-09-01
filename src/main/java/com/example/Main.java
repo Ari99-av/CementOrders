@@ -1,12 +1,12 @@
-package com.example.parser;
-import com.example.OrderParserFactory;
-import com.example.OrderParserInterface;
+package com.example;
 import com.example.order.Order;
+import com.example.parser.OrderParser1;
+import com.example.parser.ParserAdapter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-public class OrderTest {
+public class Main {
 
     public static void main(String[] args){
         List<Order> orders = new ArrayList<>();
@@ -16,7 +16,7 @@ public class OrderTest {
 
 
         String line = "2021-02-09T16:00:22|Industrial|8800";
-        OrderParser parser = new OrderParser();
+        OrderParser1 parser = new OrderParser1();
         Order order = parser.parse(line);
         System.out.println(order);
 
@@ -26,11 +26,11 @@ public class OrderTest {
         System.out.println(order2);
 
         OrderParserFactory factory = new OrderParserFactory();
-        OrderParserInterface fileparser = factory.getParser("orders.txt");
-        OrderParserInterface fileparser2 = factory.getParser("orders");
+        OrderParser fileparser = factory.getParser("orders.txt");
+        OrderParser fileparser2 = factory.getParser("orders");
 
-        System.out.println(fileparser.getClass());
-        System.out.println(fileparser2.getClass());
+        //System.out.println(fileparser.getClass());
+        //System.out.println(fileparser2.getClass());
 
 
     }

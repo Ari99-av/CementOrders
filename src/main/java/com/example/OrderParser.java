@@ -1,6 +1,6 @@
 package com.example;
 import com.example.order.Order;
 
-public interface OrderParserInterface {
+public interface OrderParser {
     Order parse(String line);
 }
