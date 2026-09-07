@@ -28,15 +28,17 @@ public class Main {
 
         OrderParserFactory factory = new OrderParserFactory();
         OrderParser fileparser = factory.getParser("orders.txt");
+        String filePath = "src/main/resources1/orders.txt";
+        FileService fileService = new FileService();
+        List<Order> ordersFromFile = fileService.read(filePath, fileparser);
+        System.out.println(ordersFromFile);
+
+
         OrderParser fileparser2 = factory.getParser("orders");
 
         //System.out.println(fileparser.getClass());
         //System.out.println(fileparser2.getClass());
 
-        FileService fileService = new FileService();
-        List<Order> orderFromFile = fileService.read("orders.txt", fileparser);
-        boolean ordersFromFile = false;
-        System.out.println(ordersFromFile);
 
 
     }
