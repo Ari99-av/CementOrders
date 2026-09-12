@@ -1,6 +1,6 @@
 package com.example.file;
 
-import com.example.OrderParser;
+import com.example.parser.OrderParser;
 import com.example.order.Order;
 
 import java.io.IOException;

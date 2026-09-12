@@ -1,12 +1,10 @@
 package com.example.parser;
 
-import com.example.OrderParser;
-import org.OrderParser1;
 import com.example.order.Order;
 
 public class ParserAdapter implements OrderParser {
-    private OrderParser1 parser;
-    public ParserAdapter(OrderParser1 parser) {
+    private OrderParserImpI parser;
+    public ParserAdapter(OrderParserImpI parser) {
         this.parser = parser;
         }
     public Order parse(String line){

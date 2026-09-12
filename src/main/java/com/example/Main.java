@@ -1,8 +1,10 @@
 package com.example;
 import com.example.file.FileService;
 import com.example.order.Order;
+import com.example.parser.OrderParserFactory;
 import com.example.parser.ParserAdapter;
-import org.OrderParser1;
+import com.example.parser.OrderParserImpI;
+import com.example.parser.OrderParser;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ public class Main {
 
 
         String line = "2021-02-09T16:00:22|Industrial|8800";
-        OrderParser1 parser = new OrderParser1();
+        OrderParserImpI parser = new OrderParserImpI();
         Order order = parser.parse(line);
         System.out.println(order);
 
@@ -28,9 +30,10 @@ public class Main {
 
         OrderParserFactory factory = new OrderParserFactory();
         OrderParser fileparser = factory.getParser("orders.txt");
-        String filePath = "src/main/resources1/orders.txt";
+        String filePath = "src/main/resources/orders.txt";
         FileService fileService = new FileService();
         List<Order> ordersFromFile = fileService.read(filePath, fileparser);
+        OrderCalculator calculator = new OrderCalculator(0.5, 0.05, 10.0);
         System.out.println(ordersFromFile);
 
 
