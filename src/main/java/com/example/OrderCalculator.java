@@ -1,8 +1,9 @@
 package com.example;
 import com.example.order.Order;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
+import com.example.order.OrderInvoice;
+
+import java.util.Comparator;
+import java.util.*;
 
 public class OrderCalculator {
     double startDiscount;
@@ -17,6 +18,10 @@ public class OrderCalculator {
 
     public List<OrderInvoice> calculate(List<Order> orders) {
         List<OrderInvoice> invoices = new ArrayList<>();
+        List<OrderInvoice> invoices1 = new ArrayList<>();
+        List<Order> sortedOrders = new ArrayList<>(orders);
+        sortedOrders.sort(Comparator.comparing(Order::getTime));
+
         Map<String, Double> companyCosts = new HashMap<>();
 
         int orderNumber = 0;
@@ -39,6 +44,4 @@ public class OrderCalculator {
 
         return invoices;
     }
-}
-void main() {
 }

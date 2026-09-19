@@ -1,6 +1,7 @@
 package com.example;
 import com.example.file.FileService;
 import com.example.order.Order;
+import com.example.order.OrderInvoice;
 import com.example.parser.OrderParserFactory;
 import com.example.parser.ParserAdapter;
 import com.example.parser.OrderParserImpI;
@@ -34,6 +35,11 @@ public class Main {
         FileService fileService = new FileService();
         List<Order> ordersFromFile = fileService.read(filePath, fileparser);
         OrderCalculator calculator = new OrderCalculator(0.5, 0.05, 10.0);
+        List<OrderInvoice> invoices = calculator.calculate(ordersFromFile);
+        String outputPath = "src/main/resources/orders-result.txt";
+        fileService.write(outputPath, invoices);
+            System.out.println(invoices);
+
         System.out.println(ordersFromFile);
 
 

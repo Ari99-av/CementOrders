@@ -1,13 +1,13 @@
 package com.example.file;
-
+import com.example.order.OrderInvoice;
 import com.example.parser.OrderParser;
 import com.example.order.Order;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class FileService {
     public List<Order> read(String filePath, OrderParser parser){
@@ -26,5 +26,22 @@ public class FileService {
         }
     }
 
+    }
+            public void write(String filePath, List<OrderInvoice> invoices) {
+    List<String> lines = new ArrayList<>();
+    for (OrderInvoice invoice : invoices) {
+        lines.add(invoice.toString());
+    }
+    try {
+        Files.write(Path.of(filePath), lines);
+    }catch (IOException e) {
+        throw new RuntimeException(e);
+    }
+            }
 
-}
+
+
+
+
+
+
