@@ -1,0 +1,12 @@
+Pyramid - 111100.00000000001
+Preparatory - 160575.0
+Electricity - 36800.0
+Industrial - 44000.0
+Power Engineer - 317540.0
+Mosque - 198720.0
+Carryover - 281865.0
+Resident - 44880.0
+Fossil - 166600.00000000003
+Atomic - 87500.0
+Recovery - 73710.0
+Ancillary - 315000.0

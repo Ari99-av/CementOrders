@@ -10,12 +10,12 @@ import java.util.List;
 
 
 public class FileService {
-    public List<Order> read(String filePath, OrderParser parser){
+    public List<Order> read(String filePath, OrderParser parser) {
         Path path = Path.of(filePath);
         try {
             List<String> lines = Files.readAllLines(path);
             List<Order> orders = new ArrayList<>();
-            for (String currentLine : lines){
+            for (String currentLine : lines) {
                 String line = currentLine;
                 Order order = parser.parse(line);
                 orders.add(order);
@@ -25,20 +25,18 @@ public class FileService {
             throw new RuntimeException(e);
         }
     }
-
+    public void write(String filePath, List<OrderInvoice> invoices) {
+        List<String> lines = new ArrayList<>();
+        for (OrderInvoice invoice : invoices) {
+            lines.add(invoice.toString());
+        }
+        try {
+            Files.write(Path.of(filePath), lines);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
-            public void write(String filePath, List<OrderInvoice> invoices) {
-    List<String> lines = new ArrayList<>();
-    for (OrderInvoice invoice : invoices) {
-        lines.add(invoice.toString());
-    }
-    try {
-        Files.write(Path.of(filePath), lines);
-    }catch (IOException e) {
-        throw new RuntimeException(e);
-    }
-            }
-
+}
 
 
 

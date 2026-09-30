@@ -1,11 +1,13 @@
 package com.example;
 import com.example.file.FileService;
+import com.example.file.OrderCalculator;
 import com.example.order.Order;
 import com.example.order.OrderInvoice;
 import com.example.parser.OrderParserFactory;
 import com.example.parser.ParserAdapter;
 import com.example.parser.OrderParserImpI;
 import com.example.parser.OrderParser;
+import com.example.service.OrderManager;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -44,6 +46,12 @@ public class Main {
 
 
         OrderParser fileparser2 = factory.getParser("orders");
+
+        OrderManager manager = new OrderManager(fileService, calculator);
+        String readPath = "src/main/resources/orders.txt";
+        String writePath = "src/main/resources/result.txt";
+        manager.manage(readPath, writePath);
+
 
         //System.out.println(fileparser.getClass());
         //System.out.println(fileparser2.getClass());
