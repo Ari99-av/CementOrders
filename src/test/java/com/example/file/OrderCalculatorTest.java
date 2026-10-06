@@ -1,6 +1,6 @@
 package com.example.file;
 
-import com.example.file.OrderCalculator;
+import com.example.service.OrderCalculator;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 import com.example.order.Order;

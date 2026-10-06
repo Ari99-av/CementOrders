@@ -1,13 +1,13 @@
 package com.example;
 import com.example.file.FileService;
-import com.example.file.OrderCalculator;
+import com.example.service.OrderCalculator;
 import com.example.order.Order;
 import com.example.order.OrderInvoice;
 import com.example.parser.OrderParserFactory;
 import com.example.parser.ParserAdapter;
 import com.example.parser.OrderParserImpI;
 import com.example.parser.OrderParser;
-import com.example.service.OrderManager;
+import manager.OrderManager;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -15,48 +15,13 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args){
-        List<Order> orders = new ArrayList<>();
-        LocalDateTime time1 = LocalDateTime.parse("2021-02-09T16:00:22");
-        Order order1 = new Order("Industrial", 8800, time1);
-        orders.add(order1);
-
-
-        String line = "2021-02-09T16:00:22|Industrial|8800";
-        OrderParserImpI parser = new OrderParserImpI();
-        Order order = parser.parse(line);
-        System.out.println(order);
-
-        String lineWithHash = "2021-02-09T16:00:22#Industrial#8800";
-        ParserAdapter adapter = new ParserAdapter(parser);
-        Order order2 = adapter.parse(lineWithHash);
-        System.out.println(order2);
-
-        OrderParserFactory factory = new OrderParserFactory();
-        OrderParser fileparser = factory.getParser("orders.txt");
-        String filePath = "src/main/resources/orders.txt";
-        FileService fileService = new FileService();
-        List<Order> ordersFromFile = fileService.read(filePath, fileparser);
-        OrderCalculator calculator = new OrderCalculator(0.5, 0.05, 10.0);
-        List<OrderInvoice> invoices = calculator.calculate(ordersFromFile);
-        String outputPath = "src/main/resources/orders-result.txt";
-        fileService.write(outputPath, invoices);
-            System.out.println(invoices);
-
-        System.out.println(ordersFromFile);
-
-
-        OrderParser fileparser2 = factory.getParser("orders");
+            FileService fileService = new FileService();
+            OrderCalculator calculator = new OrderCalculator();
 
         OrderManager manager = new OrderManager(fileService, calculator);
         String readPath = "src/main/resources/orders.txt";
         String writePath = "src/main/resources/result.txt";
-        manager.manage(readPath, writePath);
-
-
-        //System.out.println(fileparser.getClass());
-        //System.out.println(fileparser2.getClass());
-
-
+        manager.manage(readPath, writePath, 0.5, 0.05,10.0);
 
     }
 
