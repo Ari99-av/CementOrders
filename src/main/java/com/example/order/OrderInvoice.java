@@ -1,8 +1,10 @@
 package com.example.order;
 
+import java.time.LocalDateTime;
+
 public class OrderInvoice {
-    String companyName;
-    double totalCost;
+    private final String companyName;
+    private final double totalCost;
 
     public OrderInvoice(String companyName, double totalCost) {
         this.companyName = companyName;
@@ -10,7 +12,6 @@ public class OrderInvoice {
     }
 
     public String getCompanyName() {
-
         return companyName;
     }
 
@@ -20,7 +21,8 @@ public class OrderInvoice {
 
     @Override
     public String toString() {
-        return companyName + " - " + totalCost;
+        return companyName + " - " +
+                totalCost;
 
 
     }

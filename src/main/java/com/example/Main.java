@@ -1,17 +1,8 @@
 package com.example;
-import com.example.file.FileService;
+import com.example.service.FileService;
 import com.example.service.OrderCalculator;
-import com.example.order.Order;
-import com.example.order.OrderInvoice;
-import com.example.parser.OrderParserFactory;
-import com.example.parser.ParserAdapter;
-import com.example.parser.OrderParserImpI;
-import com.example.parser.OrderParser;
 import manager.OrderManager;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 public class Main {
 
     public static void main(String[] args){

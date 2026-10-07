@@ -1,6 +1,6 @@
 package manager;
 
-import com.example.file.FileService;
+import com.example.service.FileService;
 import com.example.order.Order;
 import com.example.order.OrderInvoice;
 import com.example.parser.OrderParser;
