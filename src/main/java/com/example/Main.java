@@ -1,17 +1,20 @@
 package com.example;
+import com.example.service.FileService;
+import com.example.service.OrderCalculator;
+import manager.OrderManager;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
-        }
+    public static void main(String[] args){
+            FileService fileService = new FileService();
+            OrderCalculator calculator = new OrderCalculator();
+
+        OrderManager manager = new OrderManager(fileService, calculator);
+        String readPath = "src/main/resources/orders.txt";
+        String writePath = "src/main/resources/result.txt";
+        manager.manage(readPath, writePath, 0.5, 0.05,10.0);
+
     }
-}
+
+    }
+
