@@ -1,4 +1,4 @@
-package manager;
+package com.example.manager;
 
 import com.example.service.FileService;
 import com.example.order.Order;

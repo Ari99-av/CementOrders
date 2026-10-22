@@ -1,7 +1,7 @@
 package com.example;
 import com.example.service.FileService;
 import com.example.service.OrderCalculator;
-import manager.OrderManager;
+import com.example.manager.OrderManager;
 
 public class Main {
 
